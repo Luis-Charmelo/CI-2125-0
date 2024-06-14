@@ -1,5 +1,5 @@
-#define MAX_POLY 100 // Define el número máximo de polinomios que se pueden manejar
-#define MAX_DEGREE 10 // Define el mayor grado aceptado para los polinomios
+#define MAX_POLY 100 // Numero máximo de polinomios que se pueden manejar
+#define MAX_DEGREE 10 // mayor grado para los polinomios
 
 void printPolynomial(int coeff[], int degree) {
     int isFirstTerm = 1;
