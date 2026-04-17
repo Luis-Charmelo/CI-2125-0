@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Lógica para las preguntas de opción múltiple
+                document.querySelectorAll('.option').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const correct = button.dataset.correct === "true";
+                        const feedback = button.parentElement.querySelector('.feedback');
+
+                        if (correct) {
+                            button.style.backgroundColor = 'green';
+                            feedback.textContent = '¡Correcto!';
+                        } else {
+                            button.style.backgroundColor = 'red';
+                            feedback.textContent = 'Incorrecto';
+                        }
+                    });
+                });
+
+                // Lógica para preguntas de respuesta libre
+                document.querySelectorAll('.check-answer').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const input = button.parentElement.querySelector('input');
+                        const feedback = button.parentElement.querySelector('.feedback');
+                        const correctAnswer = button.dataset.answer.trim().toLowerCase();
+                        const userAnswer = input.value.trim().toLowerCase();
+
+                        if (userAnswer === correctAnswer) {
+                            input.style.backgroundColor = 'green';
+                            feedback.textContent = '¡Correcto!';
+                        } else {
+                            input.style.backgroundColor = 'red';
+                            feedback.textContent = 'Incorrecto';
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <!-- Preguntas de selección múltiple -->
+            <h2>Part 1: Multiple Choice</h2>
+            <hr>
+
+            <!-- 15 preguntas de selección múltiple -->
+            <div class="section">
+                <h3>Pregunta 1 : ¿cuando cayo el imperio romano?</h3>
+                <button class="option" data-correct="false">250 d.c</button>
+                <button class="option" data-correct="false">620 d.c</button>
+                <button class="option" data-correct="true">476 d.c</button>
+                <button class="option" data-correct="false">120 a.c</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 2 : ¿En que ano termino la segunda guerra mundial?</h3>
+                <button class="option" data-correct="true">1945</button>
+                <button class="option" data-correct="false">1941</button>
+                <button class="option" data-correct="false">1947</button>
+                <button class="option" data-correct="false">1949</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 3 : ¿quien fue el primer presidente en la historia de USA?</h3>
+                <button class="option" data-correct="false">Abraham Lincoln</button>
+                <button class="option" data-correct="true">George Washington</button>
+                <button class="option" data-correct="false">J.P Morgan</button>
+                <button class="option" data-correct="false">John Adams</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 4 : ¿Cual es la sede de las naciones unidas?</h3>
+                <button class="option" data-correct="true">Nueva York</button>
+                <button class="option" data-correct="false">George Town</button>
+                <button class="option" data-correct="false">Paris</button>
+                <button class="option" data-correct="false">Zurich</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 5 : ¿que es el Banco mundial?</h3>
+                <button class="option" data-correct="false">Institucion que solo financia a paises ricos</button>
+                <button class="option" data-correct="false">Institucion que solicita prestamos de paises miembros</button>
+                <button class="option" data-correct="false">Institucion que da prestamos a emprendedores</button>
+                <button class="option" data-correct="true">Institucion que ofrece prestamos a paises en desarrollo</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 6 : ¿Que significan las siglas OPEP?</h3>
+                <button class="option" data-correct="false">Organizacion protectora de especies en peligro</button>
+                <button class="option" data-correct="true">Organizacion de paises exportadores de petroleo</button>
+                <button class="option" data-correct="false">Organizacion para el progreso</button>
+                <button class="option" data-correct="false">Ninguna de las anteriores</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 7 : ¿En que ano nacio Nelson Mandela?</h3>
+                <button class="option" data-correct="false">1925</button>
+                <button class="option" data-correct="false">1922</button>
+                <button class="option" data-correct="true">1918</button>
+                <button class="option" data-correct="false">1917</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 8 : ¿Que presidente de Venezuela nacionalizo la insdustria petrolera?</h3>
+                <button class="option" data-correct="false">Hugo Chavez</button>
+                <button class="option" data-correct="true">Carlos Andres Perez</button>
+                <button class="option" data-correct="false"> Medina Angarita</button>
+                <button class="option" data-correct="false">Jaime Lusinchi</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 9 : ¿Quien fue el responsble de la unificacion de la federacion alemana en 1871?</h3>
+                <button class="option" data-correct="false">Adolfo Hitler</button>
+                <button class="option" data-correct="true">Otto Von Bismarck</button>
+                <button class="option" data-correct="false">Gobbles</button>
+                <button class="option" data-correct="false"> Ninguno de los anteriores</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 10 : ¿Que suceso forzo el involucramiento de USA en la segunda guerra mundial?</h3>
+                <button class="option" data-correct="false">la batalla en Stalingrado</button>
+                <button class="option" data-correct="false">Ataque aleman a polonia</button>
+                <button class="option" data-correct="false">Desembarco de Normandia</button>
+                <button class="option" data-correct="true">ataque a Pearl Harbor</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 11 : ¿ Que pais ataco directamente a USA durante WWII provocando su anexion al conflicto?</h3>
+                <button class="option" data-correct="false">La alemania NAZI</button>
+                <button class="option" data-correct="true">El imperio japones</button>
+                <button class="option" data-correct="false">La Italia facista</button>
+                <button class="option" data-correct="false">La union sovietica</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 12 : ¿Que fue el escandalo del Watergate?</h3>
+                <button class="option" data-correct="false">Escandalo sobre el mal manejo en una tragedia natural </button>
+                <button class="option" data-correct="true">Escandalo de espionaje que invlocucraba al presidente Nixon</button>
+                <button class="option" data-correct="false">Escandalo sobre el robo de informacion clasificada por parte de Nixon</button>
+                <button class="option" data-correct="false">Escandalo de filtracion masiva de secretos de la casa blanca </button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 13 : ¿Que dio origen a la primera guerra mundial?</h3>
+                <button class="option" data-correct="true">El asesinato del archiduque Francisco de Austria</button>
+                <button class="option" data-correct="false">el imperio Otomano tomando mas territorios en medio oriente</button>
+                <button class="option" data-correct="false">Las ambiciones de Alemania en Europa</button>
+                <button class="option" data-correct="false">Las ambiciones de Italia en Europa</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 14 : ¿Cual fue el presidente venezolano que saldo toda la deuda externa?</h3>
+                <button class="option" data-correct="false">Marcos Perez Jimenez</button>
+                <button class="option" data-correct="false">Romulo Betancourt</button>
+                <button class="option" data-correct="false">Cipriano Castro</button>
+                <button class="option" data-correct="true">Juan vicente gomez</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 15 : ¿Que es la OTAN?</h3>
+                <button class="option" data-correct="false">Una organizacion internacional de colaboracion netamente cientifica</button>
+                <button class="option" data-correct="false">una alianza deportiva</button>
+                <button class="option" data-correct="true">Una alianza militar internacional</button>
+                <button class="option" data-correct="false">Una organizacion trasnacional antinarcoticos</button>
+                <p class="feedback"></p>
+            </div>
+
+            <!-- Preguntas de respuesta libre -->
+            <h2>Part 2: Free Response</h2>
+            <hr>
+
+            <div class="section">
+                <h3>Pregunta 16: ¿En que ano nacio la revolucion Cubana?</h3>
+                <input type="text" placeholder="Enter your answer here">
+                <button class="check-answer" data-answer="1959">Check Answer</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 17: ¿En que ano cayo el muro de Berlin?</h3>
+                <input type="text" placeholder="Enter your answer here">
+                <button class="check-answer" data-answer="1989">Check Answer</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 18: ¿En que ano se implemento la Perestroika?</h3>
+                <input type="text" placeholder="Enter your answer here">
+                <button class="check-answer" data-answer="1985">Check Answer</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 19: ¿Cual es el presidente de USA con la mayor cantidad de votos electorales de la historia?</h3>
+                <input type="text" placeholder="Enter your answer here">
+                <button class="check-answer" data-answer="Ronald Reagan">Check Answer</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h3>Pregunta 20: ¿A quien se le conocia por su apodo "La dama de hierro"?</h3>
+                <input type="text" placeholder="Enter your answer here">
+                <button class="check-answer" data-answer="Margaret Thatcher">Check Answer</button>
+                <p class="feedback"></p>
+            </div>
+        </div>
+    </body>
+</html>
